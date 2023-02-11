@@ -1,0 +1,49 @@
+/* font-family: "Questrial", sans-serif;
+font-family: "Raleway", sans-serif; */
+
+.header {
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  font-family: "Raleway", sans-serif;
+}
+.info {
+  flex-basis: 50%;
+  padding: 7rem;
+}
+.sign {
+  background-color: black;
+  flex-basis: 50%;
+  color: #fff;
+  padding: 3.2rem 7rem;
+  padding-bottom: 0rem;
+  overflow: auto;
+  text-align: center;
+}
+
+.info h2 {
+  margin-bottom: 5rem;
+  font-size: 2.5rem;
+}
+.info h1 {
+  margin-bottom: 2rem;
+  font-size: 9rem;
+  line-height: 1.1;
+}
+.info p {
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  line-height: 1.1;
+  letter-spacing: 1px;
+}
+
+.sign h1 {
+  font-size: 4rem;
+  margin-bottom: 2rem;
+}
+.sign h2 {
+  font-size: 2rem;
+}
+.image {
+  height: 20rem;
+}

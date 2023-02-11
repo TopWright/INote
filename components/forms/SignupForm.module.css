@@ -1,0 +1,72 @@
+.form {
+  background-color: #fff;
+  color: #333;
+  padding: 3rem 5rem;
+  border-top-right-radius: 3rem;
+  border-top-left-radius: 3rem;
+  width: 90%;
+  margin-left: 4rem;
+}
+.form i {
+  background-color: red;
+}
+.form input {
+  background-color: white;
+  color: #222;
+  padding: 2rem;
+  border: solid 1px #333;
+}
+.form h1 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.input {
+  position: relative;
+  margin-bottom: 4rem;
+}
+.input label {
+  display: inline-block;
+  font-size: 1.5rem;
+  background-color: #fff;
+  padding: 0 1rem;
+  margin-left: 3rem;
+
+  position: absolute;
+  top: -20%;
+}
+.input input {
+  width: 100%;
+  background-color: #fff;
+  border: solid 1px #160606;
+  padding: 1.6rem 3rem;
+  color: #333;
+  border-radius: 5rem;
+  font-size: 1.7rem;
+}
+.input input .inValid {
+  border: solid 1px red;
+}
+.button {
+  display: inline-block;
+  width: 100%;
+  padding: 2rem 5rem;
+  border-radius: 5rem;
+  font-size: 1.7rem;
+  background-color: #333;
+  transition: all 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  margin-bottom: 2rem;
+}
+.button:hover {
+  transform: scale(1.02);
+}
+.login {
+  font-size: 1.7rem;
+}
+.login button {
+  background-color: transparent;
+  color: #333;
+  cursor: pointer;
+  font-size: 2rem;
+  font-weight: 700;
+}

@@ -1,0 +1,74 @@
+.dash {
+  height: 100vh;
+  background-color: #333;
+  color: #fff;
+  display: flex;
+}
+.menu {
+  flex-basis: 40%;
+  border-right: solid 1px #ffffff64;
+  padding: 3rem;
+  /* display: none; */
+}
+.menu h1 {
+  font-size: 2rem;
+  margin-bottom: 3rem;
+}
+.menu h2 {
+  font-size: 3rem;
+  margin-bottom: 3rem;
+}
+
+.input input {
+  width: 100%;
+  background-color: #333;
+  border: solid 1px #f3e7e7;
+  padding: 1.3rem 3rem;
+  color: #fff;
+  border-radius: 2rem;
+  font-size: 1.7rem;
+  margin-bottom: 3rem;
+}
+.button {
+  display: inline-block;
+  width: 100%;
+  padding: 2rem 5rem;
+  border-radius: 2rem;
+  font-size: 1.7rem;
+  border: solid 1px #f3e7e7;
+  /* background-color: tomato; */
+  transition: all 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  margin-bottom: 2rem;
+}
+.button:hover {
+  transform: scale(1.02);
+}
+.collection {
+  margin-bottom: 3rem;
+  cursor: pointer;
+}
+.box {
+  list-style: none;
+  font-size: 2rem;
+}
+.controls {
+  height: 20rem;
+  padding: 2rem;
+  overflow: auto;
+  text-align: center;
+}
+.controls div {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+@keyframes open {
+  0% {
+    opacity: 0;
+    transform: translateY(-1);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(1);
+  }
+}
