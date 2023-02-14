@@ -9,8 +9,18 @@ import Input from "../UI/Input";
 import Button from "../UI/Button";
 import ErrorMessage from "../UI/ErrorMsg";
 
-const SignupForm = () => {
+import { useAuth } from "@/src/context/auth-context";
+import { db } from "@/src/config/firebase.config";
+import { doc, collection } from "firebase/firestore";
+
+const SignupForm = (props) => {
+  const goToLogin = () => {
+    props.switch();
+  };
+
   const router = useRouter();
+
+  const { signUp } = useAuth();
   const formik = useFormik({
     initialValues: {
       fullName: "",
@@ -39,15 +49,30 @@ const SignupForm = () => {
         .required("Confirm Password is required"),
     }),
 
-    onSubmit: (userAuthValues) => {
-      console.log(userAuthValues);
-      router.push("/dashboard");
+    onSubmit: async (data) => {
+      try {
+        const userCred = await signUp(data.email, data.password);
+        console.log(userCred.user.uid);
+
+        console.log("seccessful");
+        router.push("/dashboard");
+      } catch (error) {
+        console.log("there was an error");
+      }
+      try {
+        await collection("USERS").doc(String(userCred.user.uid)).set({
+          name: data.fullName,
+          email: data.email,
+        });
+      } catch (e) {
+        console.log("Error adding document: ", e);
+      }
     },
   });
   // console.log(formik.errors.password);
 
   const nameError = formik.touched.fullName && formik.errors.fullName && (
-    <ErrorMessage content={ formik.errors.fullName } />
+    <ErrorMessage content={formik.errors.fullName} />
   );
   const emailError = formik.touched.email && formik.errors.email && (
     <ErrorMessage content={formik.errors.email} />
@@ -59,7 +84,7 @@ const SignupForm = () => {
     formik.errors.confirmPassword && (
       <ErrorMessage content={formik.errors.confirmPassword} />
     );
-  
+
   return (
     <form className={classes.form} onSubmit={formik.handleSubmit}>
       <h1>Create Account</h1>
@@ -118,7 +143,7 @@ const SignupForm = () => {
       {/* Alter native form ---- LOGIN */}
       <div className={classes.login}>
         <span>Already have an account? </span>
-        <Button>Login</Button>
+        <Button onClick={goToLogin}>Login</Button>
       </div>
     </form>
   );

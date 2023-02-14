@@ -9,8 +9,17 @@ import Input from "../UI/Input";
 import Button from "../UI/Button";
 import ErrorMessage from "../UI/ErrorMsg";
 
-const LoginForm = () => {
+import { useAuth } from "@/src/context/auth-context";
+
+const LoginForm = (props) => {
+  const goToSignup = () => {
+    props.switch();
+  };
+
   const router = useRouter();
+
+  const { login } = useAuth();
+
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -28,9 +37,13 @@ const LoginForm = () => {
         .required("Password is required"),
     }),
 
-    onSubmit: (userAuthValues) => {
-      console.log(userAuthValues);
-      router.push("/dashboard");
+    onSubmit: async (data) => {
+      try {
+        await login(data.email, data.password);
+         router.push("/dashboard");
+      } catch (error) {
+        console.log("there was an error");
+      }
     },
   });
   // console.log(formik.errors.password);
@@ -76,7 +89,7 @@ const LoginForm = () => {
       {/* Alter native form ---- LOGIN */}
       <div className={classes.login}>
         <span>No have an account? </span>
-        <Button> Create Account</Button>
+        <Button onClick={goToSignup}> Create Account</Button>
       </div>
     </form>
   );
