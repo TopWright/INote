@@ -1,0 +1,10 @@
+.col {
+  display: flex;
+  gap: 1rem;
+  background-color: transparent;
+}
+.col h1 {
+  font-size: 2.3rem;
+  margin-top: 5px;
+  font-family: "Raleway", sans-serif;
+}

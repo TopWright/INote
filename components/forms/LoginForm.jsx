@@ -11,6 +11,27 @@ import ErrorMessage from "../UI/ErrorMsg";
 
 import { useAuth } from "@/src/context/auth-context";
 
+import { FaUser } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
+
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+const iconStyle1 = {
+  fontSize: "1.5rem",
+  position: "absolute",
+  zIndex: "1",
+  top: "25%",
+  right: "15%",
+};
+const iconStyle2 = {
+  fontSize: "1.5rem",
+  position: "absolute",
+  zIndex: "1",
+  top: "50%",
+  right: "15%",
+};
+
 const LoginForm = (props) => {
   const goToSignup = () => {
     props.switch();
@@ -40,10 +61,14 @@ const LoginForm = (props) => {
     onSubmit: async (data) => {
       try {
         await login(data.email, data.password);
-         router.push("/dashboard");
+        toast.success("Loggin Successful");
       } catch (error) {
-        console.log("there was an error");
+        console.log("there was an error", error);
+
+        toast.error("Loggin Not Successful... Please Create Account");
       }
+
+      router.push("/notes");
     },
   });
   // console.log(formik.errors.password);
@@ -57,7 +82,10 @@ const LoginForm = (props) => {
 
   return (
     <form className={classes.form} onSubmit={formik.handleSubmit}>
+      <ToastContainer />
       <h1>Login Account</h1>
+      <FaUser style={iconStyle1} />
+
       <Input
         label="Email Address"
         input={{
@@ -70,6 +98,8 @@ const LoginForm = (props) => {
         value={formik.values.email}
         errorMessage={emailError}
       />
+      <MdEmail style={iconStyle2} />
+
       <Input
         label="Password"
         input={{

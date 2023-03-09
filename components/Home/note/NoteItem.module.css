@@ -1,0 +1,62 @@
+.noteItem {
+  background-color: #333;
+  box-shadow: 1px 1px 1rem #0000008f;
+  border-radius: 1.5rem;
+  display: inline-block;
+  width: 25rem;
+  height: 25rem;
+  padding: 6rem 2rem;
+  margin: 1.5rem;
+  position: relative;
+}
+/* .noteItem::after {
+  content: "view full details";
+  font-size: 2rem;
+
+  display: inline-block;
+  width: 25rem;
+  height: 25rem;
+  background-color: rgba(13, 8, 8, 0.35);
+  border-radius: 1.5rem;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  transition: all 1s cubic-bezier(0.215, 0.61, 0.355, 1);
+  display: none;
+} */
+.noteItem h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+.noteItem p {
+  font-size: 1.5rem;
+  margin-bottom: 3rem;
+  line-height: 1.5;
+}
+.noteItem div {
+  font-size: 1.7rem;
+}
+.control {
+  background-color: transparent;
+  text-align: initial;
+  transition: all 1s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+  position: relative;
+}
+.control:hover {
+  transform: scale(1.03);
+}
+.delete {
+  text-align: right;
+
+  position: absolute;
+  z-index: 1;
+  top: 12%;
+  right: 12%;
+  display: none;
+}
+.control:hover .delete {
+  display: block;
+}

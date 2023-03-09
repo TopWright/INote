@@ -6,6 +6,8 @@
   border-top-left-radius: 3rem;
   width: 90%;
   margin-left: 4rem;
+
+  position: relative;
 }
 .form i {
   background-color: red;
@@ -43,6 +45,7 @@
   color: #333;
   border-radius: 5rem;
   font-size: 1.7rem;
+  padding-right: 5rem;
 }
 .input input .inValid {
   border: solid 1px red;

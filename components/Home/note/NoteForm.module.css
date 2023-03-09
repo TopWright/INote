@@ -23,6 +23,9 @@
 .title input {
   font-size: 2rem;
 }
+.note option {
+  background-color: #333;
+}
 .note textarea {
   height: 50%;
   width: 100%;
@@ -40,4 +43,10 @@
   border-radius: 2rem;
   width: 50%;
   border: solid 1px #fff;
+}
+.button {
+  margin-bottom: 3rem;
+  font-size: 3rem;
+  padding: 0 1rem;
+  border-radius: 5px;
 }

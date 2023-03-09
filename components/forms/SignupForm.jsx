@@ -13,6 +13,39 @@ import { useAuth } from "@/src/context/auth-context";
 import { db } from "@/src/config/firebase.config";
 import { doc, collection } from "firebase/firestore";
 
+import { FaUser } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
+import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
+
+const iconStyle1 = {
+  fontSize: "1.5rem",
+  position: "absolute",
+  zIndex: "1",
+  top: "17%",
+  right: "15%",
+};
+const iconStyle2 = {
+  fontSize: "1.5rem",
+  position: "absolute",
+  zIndex: "1",
+  top: "33%",
+  right: "15%",
+};
+const iconStyle3 = {
+  fontSize: "1.5rem",
+  position: "absolute",
+  zIndex: "1",
+  top: "49%",
+  right: "15%",
+};
+const iconStyle4 = {
+  fontSize: "1.5rem",
+  position: "absolute",
+  zIndex: "1",
+  top: "66%",
+  right: "15%",
+};
+
 const SignupForm = (props) => {
   const goToLogin = () => {
     props.switch();
@@ -54,8 +87,8 @@ const SignupForm = (props) => {
         const userCred = await signUp(data.email, data.password);
         console.log(userCred.user.uid);
 
-        console.log("seccessful");
-        router.push("/dashboard");
+        console.log("successful");
+        router.push("/notes");
       } catch (error) {
         console.log("there was an error");
       }
@@ -88,6 +121,7 @@ const SignupForm = (props) => {
   return (
     <form className={classes.form} onSubmit={formik.handleSubmit}>
       <h1>Create Account</h1>
+      <FaUser style={iconStyle1} />
       <Input
         label="Full Name"
         input={{
@@ -100,6 +134,7 @@ const SignupForm = (props) => {
         value={formik.values.fullName}
         errorMessage={nameError}
       />
+      <MdEmail style={iconStyle2} />
       <Input
         label="Email Address"
         input={{
@@ -112,6 +147,7 @@ const SignupForm = (props) => {
         value={formik.values.email}
         errorMessage={emailError}
       />
+      <AiFillEye style={iconStyle3} />
       <Input
         label="Password"
         input={{
@@ -124,6 +160,7 @@ const SignupForm = (props) => {
         value={formik.values.password}
         errorMessage={passwordError}
       />
+      <AiFillEye style={iconStyle4} />
       <Input
         label="Confirm Password"
         input={{

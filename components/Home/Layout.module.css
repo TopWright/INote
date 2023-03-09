@@ -1,0 +1,10 @@
+.layout {
+  height: 100vh;
+  background-color: #333;
+  color: #fff;
+  display: flex;
+}
+.main {
+  overflow: auto;
+  width: 100%;
+}

@@ -74,7 +74,7 @@
   }
 }
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 5px;
   margin-left: 2rem;
   background-color: transparent;
 }
@@ -131,4 +131,7 @@ input:-webkit-autofill:active {
   html {
     color-scheme: dark;
   }
+}
+#nprogress .bar {
+  background: #fff !important;
 }
